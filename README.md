@@ -1,7 +1,6 @@
 # Reihenfolge suchen: Zufall und Tausch – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-reihenfolge-suchen-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-reihenfolge-suchen-demo.streamlit.app/)**
 
 Stück 12 der Konzepte-Reihe **„Packen: Reihenfolge und Platzierungsregel“** für die Website „Sebastian Hanisch – Operations Research und Machine Learning“ (ein Verfahren mit wachsendem Beispiel: eine Packung entsteht aus einer Reihenfolge der Teile und einer Regel, wohin das nächste kommt). Stück 8 hat die Regel (MaxRects) festgelegt und die Reihenfolge nach Fläche genommen; diese Demo **sucht die Reihenfolge**: mit Zufallsstarts und mit einer Tausch-Suche, die zwei Teile der besten Reihenfolge vertauscht. Die Fall-Demos zu Zuschnitt und Paletten zeigen die Anwendung samt Kostenmodell; diese Demo erklärt den Mechanismus davor.
 
