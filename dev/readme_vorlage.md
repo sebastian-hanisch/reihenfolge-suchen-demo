@@ -27,9 +27,9 @@ Alle Zahlen sind Messungen an den Instanzen dieser Demo (feste Seeds), nachgerec
 |---|---|
 | Beispiel 1 (zwölf Rechtecke, Schranke 2, Optimum 2) | Die Reihenfolge nach Fläche braucht **3** Behälter. Mit der Startzahl 1 findet die Tausch-Suche mit Zweitziel nach 200 Auswertungen **2**, die auf die Behälterzahl allein nicht. Über die Startzahlen 1 bis 20 findet nach 1000 Auswertungen Zufall 6, Tausch B 14 und Tausch B+F 17 von 20 die zwei Behälter (Tabelle unten) |
 | Beispiel 2 (zwölf andere Rechtecke, Schranke 2, Optimum 2) | Die Reihenfolge nach Fläche braucht **3** Behälter. Von 20 Startzahlen findet höchstens eine die zwei Behälter, und nur die Tausch-Suche mit Zweitziel (Tabelle unten) |
-| Hilft die Suche? | Bei mittleren Rechtecken sinkt der mittlere Abstand zum Optimum nach 1000 Auswertungen mit Tausch B+F bei n = 12 von **0,28** (Fläche) auf **0,02** und bei n = 20 von **0,40** auf **0,10**; bei n = 40 sinkt der Abstand zur Schranke von **1,12** auf **0,73** |
-| Hilft das Zweitziel? | In allen **12** Zellen liegt Tausch B+F nach 1000 Auswertungen höchstens so weit über der Bezugsgröße wie Tausch B, in **8** Zellen darunter (in 4 gleich) |
-| Ist die Tausch-Suche besser als Zufallsstarts? | Tausch B ist es nicht klar: nach 1000 Auswertungen in **4** Zellen besser als Zufall, in 6 gleich und in **2** schlechter (mittlere Rechtecke n = 12: 0,09 gegen 0,05; hoch schmal n = 20: 0,03 gegen 0,02) |
+| Hilft die Suche? | Bei mittleren Rechtecken sinkt der mittlere Abstand zum Optimum nach 1000 Auswertungen mit Tausch B+F bei n = 12 von **0,28** (Fläche) auf **0,02** bis **0,03** und bei n = 20 von **0,40** auf **0,05** bis **0,10** (je nach Startzahl; die Tabelle zeigt die Startzahlen der Demo); bei n = 40 sinkt der Abstand zur Schranke von **1,12** auf **0,73** |
+| Hilft das Zweitziel? | In allen **12** Zellen liegt Tausch B+F nach 1000 Auswertungen höchstens so weit über der Bezugsgröße wie Tausch B, in **8** Zellen darunter (in 4 gleich; bei anderen Startzahlen liegt B+F ebenfalls in 0 Zellen darüber, die Zahl der Zellen darunter schwankt zwischen 8 und 9) |
+| Ist die Tausch-Suche besser als Zufallsstarts? | Tausch B ist es nicht klar: nach 1000 Auswertungen in **4** Zellen besser als Zufall, in 6 gleich und in **2** schlechter (mittlere Rechtecke n = 12: 0,09 gegen 0,05; hoch schmal n = 20: 0,03 gegen 0,02); die Unterschiede liegen bei etwa ±0,05 und wechseln mit der Startzahl das Vorzeichen |
 | Instanz für Instanz | Von 1200 Instanzen findet nach 1000 Auswertungen eine Reihenfolge mit weniger Behältern als die nach Fläche: Zufallsstarts bei **114**, Tausch B bei **127**, Tausch B+F bei **203**; mit mehr Behältern nie (der Start zählt als erste Auswertung) |
 | Wie nah am Optimum? | Die Reihenfolge nach Fläche trifft das Optimum bei 12 Rechtecken in 72 bis 95 %, bei 20 in 60 bis 99 % der entschiedenen Instanzen; Tausch B+F nach 1000 Auswertungen bei 12 in **97 bis 100 %**, bei 20 in **90 bis 99 %** |
 | Wie weit kann eine Suche kommen? | Bei 7 und 8 Rechtecken liefert die beste aller Reihenfolgen in **340 von 340** Instanzen das Optimum, die Reihenfolge nach Fläche in **323**; der Dekodierer ist dort nicht die Grenze |
@@ -43,7 +43,7 @@ Alle Zahlen sind Messungen an den Instanzen dieser Demo (feste Seeds), nachgerec
 
 {{BEISPIEL_2}}
 
-**Behälter über der Vergleichsbasis** (Mittel; Basis: Optimum bei 12 und 20 Rechtecken, nur über die entschiedenen Instanzen, sonst die Schranke; Zahl hinter dem Namen = Auswertungen; bei 40 Rechtecken ist die Schranke locker, dort zählt nur der Vergleich der Suchen):
+**Behälter über der Vergleichsbasis** (Mittel; Basis: Optimum bei 12 und 20 Rechtecken, nur über die entschiedenen Instanzen, sonst die Schranke; Zahl hinter dem Namen = Auswertungen; bei 40 Rechtecken ist die Schranke vermutlich locker, dort zählt nur der Vergleich der Suchen):
 
 {{TABELLE_A}}
 
@@ -58,9 +58,9 @@ Alle Zahlen sind Messungen an den Instanzen dieser Demo (feste Seeds), nachgerec
 ## Ehrliche Grenzen
 
 - Alle Aussagen gelten für Rechtecke ohne Drehung, vier Verteilungen mit festen Bereichen, drei Rechteckzahlen, eine Behältergröße, **einen** Dekodierer (MaxRects BSSF) und genau diese drei Suchen. Andere Dekodierer, andere Suchverfahren und Praxisdaten sind nicht gemessen.
-- Jede Suche läuft je Instanz **einmal**; das Ergebnis hängt an ihrer Startzahl (Beispiele: 6 bis 17 von 20 Startzahlen finden das Optimum, je nach Suche). Die Tabellen mitteln über Instanzen, nicht über Läufe.
-- Das Optimum gilt über **alle** Packungen. Es stammt aus Stück 7 (CP-SAT mit Zeitlimit): Bei 20 Rechtecken sind die nicht entschiedenen Instanzen die schweren und fehlen im Mittel; bei mittleren Rechtecken sind 27 von 100 offen, der Mittelwert dort ist nach unten verzerrt. Die Optima werden hier nur stichprobenweise nachgerechnet.
-- Bei 40 Rechtecken fehlt das Optimum; die Schranke ist in 2D locker, also ist dort nur der Vergleich der Suchen belastbar, nicht der Abstand zur Schranke.
+- Jede Suche läuft je Instanz **einmal**; das Ergebnis hängt an ihrer Startzahl (Beispiel 1: 6 bis 17 von 20 Startzahlen finden das Optimum, je nach Suche; Beispiel 2: 0 bis 1 von 20). Die Tabellen mitteln über Instanzen, nicht über Läufe.
+- Das Optimum gilt über **alle** Packungen. Es stammt aus Stück 7 (CP-SAT mit Zeitlimit): Bei 20 Rechtecken sind die nicht entschiedenen Instanzen die für CP-SAT schweren und fehlen im Mittel; bei mittleren Rechtecken sind 27 von 100 offen, der Mittelwert dort dürfte nach unten verzerrt sein. Die Optima werden hier nur stichprobenweise nachgerechnet.
+- Bei 40 Rechtecken fehlt das Optimum; die Schranke ist in 2D locker (bei 12 und 20 Rechtecken gemessen, bei 40 vermutlich ebenso), also ist dort nur der Vergleich der Suchen belastbar, nicht der Abstand zur Schranke.
 - Das Zweitziel (Fläche im leersten Behälter) ist eine eigene Wahl dieser Demo; andere Zweitziele sind nicht gemessen.
 - Zur **Laufzeit** macht die Demo keine Aussage: Eine Auswertung ist hier eine Dekodierung, deren Zeit mit der Zahl der Rechtecke wächst; Budgets sind in Auswertungen angegeben, nicht in Sekunden.
 - Die Obergrenze gilt nur für 7 und 8 Rechtecke; ob die beste Reihenfolge auch bei 12 oder mehr Rechtecken das Optimum erreicht, ist nicht gemessen.

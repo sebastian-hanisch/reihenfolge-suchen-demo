@@ -214,7 +214,7 @@ def test_suche_hilft_bei_mittleren_rechtecken():
     suche = {n: g[(0, ni)][3][BUD[-1]] for ni, n in enumerate(C.MESS_N)}
     assert (flaeche, suche) == ({12: 0.28, 20: 0.40, 40: 1.12}, {12: 0.02, 20: 0.10, 40: 0.73})
     assert ev.referenz(ev.zeile(0, 0))[0] == ev.referenz(ev.zeile(0, 1))[0] == "dem Optimum" and ev.referenz(ev.zeile(0, 2))[0] == "der Schranke"
-    assert ("sinkt der mittlere Abstand zum Optimum nach 1000 Auswertungen mit Tausch B+F bei n = 12 von **0,28** (Fläche) auf **0,02** und bei n = 20 von **0,40** auf **0,10**; "
+    assert ("sinkt der mittlere Abstand zum Optimum nach 1000 Auswertungen mit Tausch B+F bei n = 12 von **0,28** (Fläche) auf **0,02** bis **0,03** und bei n = 20 von **0,40** auf **0,05** bis **0,10** (je nach Startzahl; die Tabelle zeigt die Startzahlen der Demo); "
             "bei n = 40 sinkt der Abstand zur Schranke von **1,12** auf **0,73**") in README
 
 
@@ -224,7 +224,7 @@ def test_zweitziel_und_zufall_gegen_tausch():
     assert (sum(tbf[k] < tb[k] for k in g), sum(tbf[k] == tb[k] for k in g), sum(tbf[k] > tb[k] for k in g)) == (8, 4, 0)
     assert (sum(tb[k] < z[k] for k in g), sum(tb[k] == z[k] for k in g), sum(tb[k] > z[k] for k in g)) == (4, 6, 2)
     assert [k for k in g if tb[k] > z[k]] == [(0, 0), (3, 1)] and (tb[(0, 0)], z[(0, 0)], tb[(3, 1)], z[(3, 1)]) == (0.09, 0.05, 0.03, 0.02)
-    assert "In allen **12** Zellen liegt Tausch B+F nach 1000 Auswertungen höchstens so weit über der Bezugsgröße wie Tausch B, in **8** Zellen darunter (in 4 gleich)" in README
+    assert "In allen **12** Zellen liegt Tausch B+F nach 1000 Auswertungen höchstens so weit über der Bezugsgröße wie Tausch B, in **8** Zellen darunter (in 4 gleich; bei anderen Startzahlen liegt B+F ebenfalls in 0 Zellen darüber, die Zahl der Zellen darunter schwankt zwischen 8 und 9)" in README
     assert "nach 1000 Auswertungen in **4** Zellen besser als Zufall, in 6 gleich und in **2** schlechter (mittlere Rechtecke n = 12: 0,09 gegen 0,05; hoch schmal n = 20: 0,03 gegen 0,02)" in README
 
 

@@ -204,7 +204,7 @@ def verdict_messung(z: dict) -> tuple[str, str]:
     if basis == "dem Optimum" and z["offen"]:
         fuss += f" {z['offen']} von {z['instanzen']} Instanzen sind nicht entschieden und fehlen im Mittel."
     if basis == "der Schranke":
-        fuss += " Bei dieser Rechteckzahl fehlt das Optimum und die Schranke ist locker: Lesen Sie nur die Unterschiede zwischen den Suchen, nicht den Abstand."
+        fuss += " Bei dieser Rechteckzahl fehlt das Optimum und die Schranke ist vermutlich locker: Lesen Sie nur die Unterschiede zwischen den Suchen, nicht den Abstand."
     if g[3][b] < g[2][b]:
         return "success", kopf + " Das **Zweitziel** bringt die Suche weiter als die Behälterzahl allein." + fuss
     return "info", kopf + " Das Zweitziel bringt hier nicht mehr als die Behälterzahl allein." + fuss

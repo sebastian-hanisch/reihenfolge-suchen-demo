@@ -151,7 +151,7 @@ for r in oz:
 st.markdown("\n".join(tab2))
 st.caption(
     f"Anteil der entschiedenen Instanzen, in denen die Reihenfolge nach {C.BUDGETS[-1]} Auswertungen genau das Optimum braucht. "
-    "„offen“ hinter dem Namen: Zahl der nicht entschiedenen Instanzen; die entschiedenen sind die leichteren. Das Optimum gilt über alle Packungen."
+    "„offen“ hinter dem Namen: Zahl der nicht entschiedenen Instanzen; die entschiedenen sind die für CP-SAT leichteren. Das Optimum gilt über alle Packungen."
 )
 kind, text = verdict_optimum(oz)
 getattr(st, kind)(text)
@@ -205,7 +205,7 @@ with st.expander("📐 Mathematische Formulierung"):
 
 **Dekodierer.** $D(\pi)$ setzt die Rechtecke in der Reihenfolge $\pi$; jedes kommt in den ersten Behälter, in dem ein freies Rechteck für es passt, an die linke untere Ecke des freien Rechtecks mit der kleinsten kurzen Restkante $\min(f_w - w, f_h - h)$, sonst in einen neuen Behälter (Stück 8). Der Dekodierer ist deterministisch: gleiche Reihenfolge, gleiche Packung.
 
-**Ziel.** Gesucht ist $\min_\pi B(\pi)$. Dieses Minimum liegt über $\mathrm{OPT}$, weil nicht jede Packung als Dekodierung einer Reihenfolge entsteht; bei 7 und 8 Rechtecken wird es durch Durchprobieren aller $n!$ Reihenfolgen berechnet.
+**Ziel.** Gesucht ist $\min_\pi B(\pi)$. Dieses Minimum kann über $\mathrm{OPT}$ liegen, weil nicht jede Packung als Dekodierung einer Reihenfolge entsteht; bei 7 und 8 Rechtecken wird es durch Durchprobieren aller $n!$ Reihenfolgen berechnet und lag in allen 340 Instanzen bei $\mathrm{OPT}$.
 
 **Zweitziel.** In der Tausch-Suche mit Zweitziel wird $(B(\pi), F(\pi))$ lexikographisch verglichen, beides soll klein sein: Bei gleicher Behälterzahl ist die Reihenfolge besser, die den leersten Behälter weiter leert.
 

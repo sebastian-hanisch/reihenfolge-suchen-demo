@@ -87,7 +87,7 @@ def test_messung_offene_instanzen_und_schranke_als_basis():
     assert "(73 Instanzen)" in text and "27 von 100 Instanzen sind nicht entschieden und fehlen im Mittel." in text
     kind, text = ev.verdict_messung(_z({0: 1.12, 1: 1.0, 2: 0.9, 3: 0.78}, exakt=False, entschieden=0, n=40, verteilung=3))
     assert "für hohe schmale Rechtecke mit n = 40".lower() in text.lower() and "über der Schranke (100 Instanzen)" in text
-    assert "Bei dieser Rechteckzahl fehlt das Optimum und die Schranke ist locker" in text and "nicht entschieden" not in text
+    assert "Bei dieser Rechteckzahl fehlt das Optimum und die Schranke ist vermutlich locker" in text and "nicht entschieden" not in text
     kind, text = ev.verdict_messung(_z({0: 1.0, 1: 0.9, 2: 0.8, 3: 0.7}, exakt=True, entschieden=0, offen=100))     # nichts entschieden: Schranke als Basis
     assert "über der Schranke" in text
 
